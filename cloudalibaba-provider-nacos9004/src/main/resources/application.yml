@@ -1,0 +1,17 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: cloudalibaba-provider-nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

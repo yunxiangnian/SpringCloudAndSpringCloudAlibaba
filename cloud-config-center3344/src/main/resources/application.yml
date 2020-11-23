@@ -1,0 +1,39 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          # 仓库地址
+          uri: https://github.com/yunxiangnian/spring-cloud-config.git
+          search-paths:
+            # 搜索目录
+            - spring-cloud-config
+      #读取分支
+      label: master
+    # rabbitMq的相关配置
+  rabbitmq:
+    host: 192.168.1.133
+    port: 5672  # 这里没错，虽然rabbitMQ网页是 15672
+    username: root
+    password: root
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+
+
+# rabbitmq 的相关配置2 暴露bus刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

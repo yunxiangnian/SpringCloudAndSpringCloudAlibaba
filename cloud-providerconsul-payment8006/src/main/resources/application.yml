@@ -1,0 +1,12 @@
+server:
+  port: 8006
+
+spring:
+  application:
+    name: cloud-consul-provider
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:    # 指定注册对外暴露的服务名称
+        service-name: ${spring.application.name}

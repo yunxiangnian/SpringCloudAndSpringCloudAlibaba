@@ -1,0 +1,35 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: cloud-config-client
+  cloud:
+    # config 客户端配置
+    config:
+      label: master # 分支名称
+      name: config # 配置文件名称，文件也可以是client-config-dev.yml这种格式的，这里就写 client-config
+      profile: dev # 使用配置环境
+      uri: http://localhost:3344  # config Server 地址
+      # 综合上面四个 即读取配置文件地址为： http://config-3344.com:3344/master/config-dev.yml
+  # rabbitMq的相关配置
+  rabbitmq:
+    host: 192.168.1.133
+    port: 5672  # 这里没错，虽然rabbitMQ网页是 15672
+    username: root
+    password: root
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+
+# 暴露监控断点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

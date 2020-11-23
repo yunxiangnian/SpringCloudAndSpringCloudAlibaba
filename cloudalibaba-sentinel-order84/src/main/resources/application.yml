@@ -1,0 +1,24 @@
+server:
+  port: 84
+
+spring:
+  application:
+    name: consumer-sentinel-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        # 配置 Sentinel Dashboard 的地址
+        dashboard: localhost:8080
+        # 默认8719 ，如果端口被占用，端口号会自动 +1，提供给 sentinel 的监控端口
+        port: 8719
+
+service-url:
+  nacos-user-service: http://nacos-payment-provider
+
+# 超级重要，激活sentinel对feign的支持
+feign:
+  sentinel:
+    enabled: true
