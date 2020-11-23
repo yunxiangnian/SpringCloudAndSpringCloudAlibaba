@@ -6,6 +6,7 @@
 服务调用中心（Feign、OpenFeign）、
 服务熔断和服务降级（SpringCloudAlibabaNacos、Hystrix） 、
 服务配置中心和消息总线（config和Bus、Nacos）、
-分布式服务链路追踪、
+消息驱动（SpringCloudStream）、
+分布式服务链路追踪（SpringCloudSleuth）、
 分布式事务处理Seata、
-SpringCloudAlibaba熔断限流Sentinel
+SpringCloudAlibaba熔断限流（Sentinel）
